@@ -1,0 +1,1 @@
+pip install -E . -r required.txt
