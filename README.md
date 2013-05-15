@@ -25,8 +25,8 @@ I'd like to use RedMine as a tickets tracking system and use LeanKit as dashboar
 
 3. You may also need to configure mapping between RedMine tickets statuses and LeanKit board lanes. Edit app.py file for it and change STATUSES_MAPPING constant.
 4. This script do not create the LeanKit board and lanes for you. So, you have to create the board and create lanes according to settings you configured in step 3 (mapping)
-
-That's pretty it!
+5. run with:
+	python app.py
 
 ## Requirements
 
