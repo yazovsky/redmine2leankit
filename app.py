@@ -20,14 +20,19 @@ STATUSES_MAPPING = {
     "Evaluated": "Analysis::In progress",
     "Assigned": "Analysis::Done",
 
-    "In Progress": "Development",
+    "In Progress": "Development::In progress",
+    "Resolved": "Development::Done",
 
-    "Resolved": "Testing::In progress",
     "Reopened / Rejected": "Testing::In progress",
     "Tested": "Testing::Done",
 
     "Closed": "Delivered",
-    "Blocked / Feedback": "Blocked"
+    "Blocked / Feedback": "Blocked",
+
+    # personal statuses support
+    "QA full name (the same as in redmine)::In Progress": "Testing::In progress",
+
+    # some statuses could be ignored
     # ,"Invalid": "Analysis::ToDo" # commented statuses will no be sycnhronized
 }
 
@@ -45,7 +50,7 @@ if __name__ == '__main__':
     print "Getting LeanKit board '%s'..." % LEANKIT_BOARDNAME,
     board = kanban.getBoard(title = LEANKIT_BOARDNAME)
 
-    print "Cleanup LeanKit board ... ",
+    print "Cleanup LeanKit board ... "
     for card in board.cards:
         card.remove()
     print "[yes]"
@@ -53,7 +58,14 @@ if __name__ == '__main__':
     print "Start copy tickets from RedMine to LeanKit ..."
     for issue in project.filter_issues(tracker_id = READMINE_MAPPING_FEATURE_ID, status_id = "*"):
         if issue.status['name'] in STATUSES_MAPPING:
+
+            # support synchronization based on ticket status
             lane = board.getLane(STATUSES_MAPPING[issue.status['name']])
+
+            # support sycnronization based on ticket status and assign person
+            if hasattr(issue, 'assigned_to') and issue.assigned_to['name'] + ":::" issue.status['name'] in STATUSES_MAPPING:
+                lane = board.getLane(issue.assigned_to['name'] + ":::" issue.status['name'])
+
             print "sync '%s' ... " % issue.subject,
             card = LeankitCard.create(lane, externalId = issue.id, title = issue.subject).save()
             print "[yes]"
