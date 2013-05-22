@@ -30,7 +30,7 @@ STATUSES_MAPPING = {
     "Blocked / Feedback": "Blocked",
 
     # personal statuses support
-    "QA full name (the same as in redmine)::Resolved": "Testing::In progress",
+    "QA full name (the same as in redmine)::In Progress": "Testing::In progress",
 
     # some statuses could be ignored
     # ,"Invalid": "Analysis::ToDo" # commented statuses will no be sycnhronized
@@ -63,8 +63,8 @@ if __name__ == '__main__':
             lane = board.getLane(STATUSES_MAPPING[issue.status['name']])
 
             # support sycnronization based on ticket status and assign person
-            if hasattr(issue, 'assigned_to') and issue.assigned_to['name'] + ":::" issue.status['name'] in STATUSES_MAPPING:
-                lane = board.getLane(issue.assigned_to['name'] + ":::" issue.status['name'])
+            if hasattr(issue, 'assigned_to') and issue.assigned_to['name'] + "::" + issue.status['name'] in STATUSES_MAPPING:
+                lane = board.getLane(STATUSES_MAPPING[issue.assigned_to['name'] + "::" + issue.status['name']])
 
             print "sync '%s' ... " % issue.subject,
             card = LeankitCard.create(lane, externalId = issue.id, title = issue.subject).save()
