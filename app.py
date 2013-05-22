@@ -30,7 +30,7 @@ STATUSES_MAPPING = {
     "Blocked / Feedback": "Blocked",
 
     # personal statuses support
-    "QA full name (the same as in redmine)::In Progress": "Testing::In progress",
+    "QA full name (the same as in redmine)::Resolved": "Testing::In progress",
 
     # some statuses could be ignored
     # ,"Invalid": "Analysis::ToDo" # commented statuses will no be sycnhronized

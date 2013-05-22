@@ -2,6 +2,10 @@
 
 I'd like to use RedMine as a tickets tracking system and use LeanKit as dashboard, to enjoy the benefits that both systems give. Advanced project management in RedMine and clean visualization of project progress in LeanKit.
 
+Supported synchronization based on ticket status and on assigned person. 
+
+For example, by default Redmine doesn't support "Testing" ticket status. You may configure to sync ticket with "Resolved" status differently when it's assigned to different persons. "Resolved" assigned to QA means "Testing::In Progress". "Resolved" assigned to developer means "Development::Done".
+
 ## Configuration
 
 1. Install necessary Python packages by running install-requirements.sh script.
