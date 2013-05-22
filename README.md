@@ -25,21 +25,23 @@ For example, by default Redmine doesn't support "Testing" ticket status. You may
 
 	READMINE_PROJECT_IDENTIFIER = look at project settings for this, "Identifier" field
 
-	READMINE_MAPPING_FEATURE_ID = <current version of script make sync of only feaures type of tickets (you may change it if you want). You have to specify ID of tickets type which will used for sync, e.g. 2
+	READMINE_MAPPING_FEATURE_ID = you may filter tickets for sync by type. e.g. sync only feaures. You have to specify ID of tickets type which will used for sync, e.g. "Feature" = 2
 
 3. You may also need to configure mapping between RedMine tickets statuses and LeanKit board lanes. Edit app.py file for it and change STATUSES_MAPPING constant.
 4. This script do not create the LeanKit board and lanes for you. So, you have to create the board and create lanes according to settings you configured in step 3 (mapping)
-5. run with:
-	python app.py
+5. run python app.py
 
 ## Requirements
 
-This script tested with Python 2.7.4, you should either use 2.* version of the Python or post the source code to Python 3 (this shouldn't be very difficult)
+Python 2.7
+Pip 1.0
 
-You may use this script on ad-hoc basis or by running via scheduler, e.g. "cron" tool
+Also make sure necessary python packages are installed. Run install-requirements.sh script for it or install via pip manually (list of packages in required.txt file).
 
 ## License
 
 Author used two source scripts "redmine_python.py" and "redmine_leankit.py", which were open source at the moment of initial project publish. More information about copyright could be found in related files.
 
-Author wrote this script for his own purpose and don't really care if somebody will reuse of rewrite any piece of this code. Enjoy and help your self!
+Author wrote this script for his own purpose and don't mind if somebody will reuse of rewrite any piece of this code. Enjoy and help your self!
+
+I would love to merge to trunk pull request which will implement two synchronization
