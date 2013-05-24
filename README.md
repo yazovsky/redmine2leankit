@@ -4,7 +4,7 @@ I'd like to use RedMine as a tickets tracking system and use LeanKit as dashboar
 
 Supported synchronization based on ticket status and on assigned person. 
 
-For example, by default Redmine doesn't support "Testing" ticket status. You may configure to sync ticket with "Resolved" status differently when it's assigned to different persons. "In progress" assigned to QA means "Testing::In Progress". "In progress" assigned to developer means "Development::In progress".
+For example, by default Redmine doesn't support "Testing" ticket status. You may configure to sync ticket with "In progress" status differently when it's assigned to different persons. "In progress" assigned to QA means "Testing::In Progress". "In progress" assigned to developer means "Development::In progress".
 
 ## Configuration
 
