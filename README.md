@@ -19,7 +19,7 @@ For example, by default Redmine doesn't support "Testing" ticket status. You may
 
 	LEANKIT_BOARDNAME = name of the board what you would like to sync
 
-	READMINE_URL = full URL of your RedMine instans. With protocol, host name and path. For example: http://myhost/redmine/
+	READMINE_URL = full URL of your RedMine instance. With protocol, host name and path. For example: http://myhost/redmine/
 
 	READMINE_API_KEY = look at your RedMine account profile for this API key
 
